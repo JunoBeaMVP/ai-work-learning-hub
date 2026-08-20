@@ -59,6 +59,14 @@ const resources: Resource[] = [
   { id: 18, title: "Prompts3", summary: "다양한 용도의 프롬프트 사례를 탐색하는 참고 서비스입니다.", category: "프롬프트·자동화", tag: "벤치마킹", links: [{ label: "Prompts3 열기", href: "https://prompts3.com" }] },
 ];
 
+const downloadFiles = [
+  { id: "01", title: "공고서", description: "저탄소 농산물 인증 컨설턴트 교육 프로그램 개발 및 양성교육 지원", format: "PDF", href: "/manus-storage/low-carbon-consultant-notice_36838328.pdf" },
+  { id: "02", title: "제안요청서", description: "저탄소 농산물 인증 컨설턴트 교육 프로그램 개발 및 양성교육 지원", format: "PDF", href: "/manus-storage/low-carbon-consultant-rfp_e22bf2c9.pdf" },
+  { id: "03", title: "보도자료", description: "우리 농산물, 더 넓은 시장으로 — 저탄소 인증 농가 판로 개척 지원", format: "PDF", href: "/manus-storage/low-carbon-market-press-release_359634d4.pdf" },
+  { id: "04", title: "일일 환경·농업기술 뉴스 요약", description: "최근 24시간 농업기술·스마트팜·에너지 뉴스를 요약하는 Skill 파일", format: "MD", href: "/manus-storage/daily-agritech-news-skill_9b8f5581.md" },
+  { id: "05", title: "44 Market Research 자료", description: "시장 조사 관련 실습 자료 압축 파일", format: "ZIP", href: "/manus-storage/market-research-materials_b4a8afb3.zip" },
+];
+
 const prompts: Prompt[] = [
   {
     id: "rfp",
@@ -150,12 +158,12 @@ export default function Home() {
           <nav className="hidden items-center gap-7 text-sm font-semibold text-[#556258] lg:flex">
             <a className="hover:text-[#1f5a45]" href="#tools">참고 도구</a>
             <a className="hover:text-[#1f5a45]" href="#prompts">실무 프롬프트</a>
-            <a className="hover:text-[#1f5a45]" href="#download">원문 자료</a>
+            <a className="hover:text-[#1f5a45]" href="#download">첨부 자료</a>
           </nav>
           <a href="#download" className="hidden items-center gap-2 rounded-xl bg-[#1f5a45] px-4 py-2.5 text-sm font-bold text-white shadow-[0_7px_16px_rgba(31,90,69,0.18)] transition hover:bg-[#164633] active:scale-[.97] sm:flex"><FileDown size={16} /> 자료 내려받기</a>
           <button onClick={() => setMobileMenu(!mobileMenu)} className="flex size-10 items-center justify-center rounded-xl border border-[#dce1d9] bg-white text-[#1f5a45] lg:hidden" aria-label="메뉴 열기">{mobileMenu ? <X size={20} /> : <Menu size={20} />}</button>
         </div>
-        {mobileMenu && <nav className="border-t border-[#dfe3dc] bg-[#f7f6f0] px-5 py-4 lg:hidden"><div className="flex flex-col gap-3 text-sm font-bold text-[#526056]"><a onClick={() => setMobileMenu(false)} href="#tools">참고 도구</a><a onClick={() => setMobileMenu(false)} href="#prompts">실무 프롬프트</a><a onClick={() => setMobileMenu(false)} href="#download">원문 자료</a></div></nav>}
+        {mobileMenu && <nav className="border-t border-[#dfe3dc] bg-[#f7f6f0] px-5 py-4 lg:hidden"><div className="flex flex-col gap-3 text-sm font-bold text-[#526056]"><a onClick={() => setMobileMenu(false)} href="#tools">참고 도구</a><a onClick={() => setMobileMenu(false)} href="#prompts">실무 프롬프트</a><a onClick={() => setMobileMenu(false)} href="#download">첨부 자료</a></div></nav>}
       </header>
 
       <main id="top">
@@ -170,7 +178,7 @@ export default function Home() {
               <p className="mt-7 max-w-xl text-base leading-7 text-[#435244] sm:text-lg">서비스를 바로 열고, 실무 프롬프트를 복사하고, 원문 자료까지 내려받으세요. 강의 후에도 이어지는 나만의 업무 도구함입니다.</p>
               <div className="mt-9 flex flex-wrap gap-3"><a href="#tools" className="inline-flex items-center gap-2 rounded-xl bg-[#1f5a45] px-5 py-3.5 text-sm font-bold text-white shadow-[0_9px_20px_rgba(31,90,69,0.2)] transition hover:bg-[#164633] active:scale-[.97]"><BookOpen size={17} /> 자료 둘러보기</a><a href="#prompts" className="inline-flex items-center gap-2 rounded-xl border border-[#b5c4b4] bg-[#fbfcf8]/85 px-5 py-3.5 text-sm font-bold text-[#305b45] transition hover:bg-white active:scale-[.97]"><Clipboard size={17} /> 프롬프트 복사하기</a></div>
             </div>
-            <div className="mt-12 flex gap-7 border-t border-[#cbd5ca] pt-6 lg:mt-0 lg:items-end lg:justify-end lg:border-t-0 lg:pt-0"><div><strong className="block font-serif text-3xl text-[#1f5a45]">18</strong><span className="text-xs font-bold text-[#667468]">바로가기 자료</span></div><div><strong className="block font-serif text-3xl text-[#1f5a45]">4</strong><span className="text-xs font-bold text-[#667468]">복사형 프롬프트</span></div><div><strong className="block font-serif text-3xl text-[#1f5a45]">1</strong><span className="text-xs font-bold text-[#667468]">원문 다운로드</span></div></div>
+            <div className="mt-12 flex gap-7 border-t border-[#cbd5ca] pt-6 lg:mt-0 lg:items-end lg:justify-end lg:border-t-0 lg:pt-0"><div><strong className="block font-serif text-3xl text-[#1f5a45]">18</strong><span className="text-xs font-bold text-[#667468]">바로가기 자료</span></div><div><strong className="block font-serif text-3xl text-[#1f5a45]">4</strong><span className="text-xs font-bold text-[#667468]">복사형 프롬프트</span></div><div><strong className="block font-serif text-3xl text-[#1f5a45]">5</strong><span className="text-xs font-bold text-[#667468]">첨부 자료</span></div></div>
           </div>
         </section>
 
@@ -210,7 +218,7 @@ export default function Home() {
         <section id="download" className="scroll-mt-24 bg-[#eef1e9] py-16 lg:py-20">
           <div className="mx-auto grid max-w-[1500px] items-center gap-10 px-5 lg:grid-cols-[280px_minmax(0,1fr)] lg:px-9">
             <div className="hidden overflow-hidden rounded-2xl border border-[#d7ded3] bg-white lg:block"><img src="/manus-storage/ai-fieldnotes-download_c9174261.jpg" alt="종이 문서 폴더와 녹색 탭으로 구성된 자료 다운로드 이미지" className="aspect-[3/2] w-full object-cover" /></div>
-            <div><div className="flex items-start gap-4"><span className="font-serif text-6xl font-black leading-none tracking-[-0.08em] text-[#1f5a45]/25">03</span><p className="pt-1 font-mono text-[11px] font-bold tracking-[0.18em] text-[#5c8068]">SOURCE DOCUMENT</p></div><h2 className="mt-3 font-serif text-4xl font-black tracking-[-0.055em] text-[#1f3127]">원문 자료를<br />내 도구함에 보관하세요.</h2><p className="mt-5 max-w-xl text-sm leading-7 text-[#667267]">강의 참고용 원문 문서를 내려받아 링크와 프롬프트를 오프라인에서도 다시 확인할 수 있습니다.</p><div className="mt-7 flex flex-wrap items-center gap-4 rounded-2xl border border-[#d5ded3] bg-[#fffdf8] p-4 sm:p-5"><span className="flex size-12 items-center justify-center rounded-xl bg-[#e7f0e8] text-[#1f5a45]"><FileDown size={23} /></span><span className="min-w-0 flex-1"><strong className="block font-serif text-lg tracking-[-0.035em] text-[#27352b]">AI 업무활용 참고자료</strong><span className="mt-0.5 block text-xs text-[#738076]">Word 문서 · 한국농업기술진흥원 강의 자료</span></span><a href="/manus-storage/ai-work-learning-reference_a057baea.docx" download className="inline-flex items-center gap-2 rounded-xl bg-[#c18135] px-4 py-3 text-sm font-bold text-white shadow-[0_7px_16px_rgba(193,129,53,0.16)] transition hover:bg-[#aa6e2a] active:scale-[.97]"><FileDown size={16} /> 다운로드</a></div></div>
+            <div><div className="flex items-start gap-4"><span className="font-serif text-6xl font-black leading-none tracking-[-0.08em] text-[#1f5a45]/25">03</span><p className="pt-1 font-mono text-[11px] font-bold tracking-[0.18em] text-[#5c8068]">ATTACHED MATERIALS</p></div><h2 className="mt-3 font-serif text-4xl font-black tracking-[-0.055em] text-[#1f3127]">첨부 자료를<br />내 도구함에 보관하세요.</h2><p className="mt-5 max-w-xl text-sm leading-7 text-[#667267]">교육 프로그램 개발과 실무 활용에 필요한 자료를 각각 내려받아 오프라인에서도 활용할 수 있습니다.</p><div className="mt-7 border-t-2 border-[#1f5a45] bg-[#fffdf8]">{downloadFiles.map((file) => <div key={file.id} className="grid gap-3 border-b border-[#dce3d9] py-4 sm:grid-cols-[42px_minmax(0,1fr)_auto] sm:items-center sm:gap-4"><span className="font-serif text-3xl font-black tracking-[-0.07em] text-[#1f5a45]/60">{file.id}</span><span className="min-w-0"><strong className="block font-serif text-lg tracking-[-0.035em] text-[#27352b]">{file.title}</strong><span className="mt-0.5 block text-xs leading-5 text-[#738076]">{file.description}</span></span><a href={file.href} download className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#c18135] px-3.5 py-2.5 text-xs font-bold text-white shadow-[0_6px_14px_rgba(193,129,53,0.14)] transition hover:bg-[#aa6e2a] active:scale-[.97]"><span className="font-mono text-[10px] tracking-[0.08em]">{file.format}</span><FileDown size={15} /> 내려받기</a></div>)}</div></div>
           </div>
         </section>
       </main>
